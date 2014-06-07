@@ -1,5 +1,6 @@
 (defproject
-  webapp "0.1.0-SNAPSHOT"
+  webapp
+  "0.1.0-SNAPSHOT"
   :repl-options  {:host "0.0.0.0" :port 12454 :init-ns webapp.repl }
   :dependencies [[ring-server "0.3.1"]
                  [postgresql/postgresql "9.1-901-1.jdbc4"]
@@ -22,7 +23,7 @@
          :init webapp.handler/init,
          :destroy webapp.handler/destroy}
   :ragtime {:migrations ragtime.sql.files/migrations,
-            :database "jdbc:postgresql://localhost/webapp?user=webapp&password=DrRoot13"}
+            :database "jdbc:postgresql://192.168.1.119/webapp?user=webapp&password=DrRoot13"}
   :profiles {:uberjar {:aot :all},
              :production {:ring
                           {:open-browser? false, :stacktraces? false, :auto-reload? false}},

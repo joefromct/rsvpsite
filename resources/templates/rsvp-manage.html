@@ -3,15 +3,31 @@
 {{dynamic-content}} 
 <article >
     <header>
-    <h2>Secret RSVP page</h2> 
-    <p>
-    <hr>
-    pick your food, update your address, etc.  
-
-    requires a login.
-    <hr>
-    <a href="/logout"> logout here</a> 
-    </p>
+        <h2>RSVP Management</h2> 
+        <table border=1 cellpad=0 cellspace=0 width=300px>
+            <script src="js/addInput.js" language="Javascript" type="text/javascript"></script>
+            <form action="/rsvp-manage" method="POST">
+                <tr>
+                    <td>party name </td> <td> <input id="party_name" size=40 name="party_name" placeholder="party_name"   type="text" value="{{party_name}}" /> </td> 
+                    <td>party email</td> <td> <input id="email" size=40 name="email_address"  placeholder="email address" type="text" value="{{email_address}}" /> </td> 
+                </tr>
+                <tr><td> Accepted?</td><td> 
+                        <select type="text" name="flag_accepted"> 
+                            <option value="  ">  </option>
+                            <option value="Yes" {% ifequal flag_accepted "Yes"          %} selected {% endifequal %} >Yes</option>
+                            <option value="No"  {% ifequal flag_accepted "No"           %} selected {% endifequal %} >No</option>
+                        </select> 
+                </td></tr> 
+                <tr>
+                </tr>
+                <tr> <td colspan=2>
+                        <div id="dynamicInput"> Guest 1<br><input type="text" name="myGuests[]" value="{{party.party_name}}" > </div>
+                        <input type="button" value="add guest" onClick="addInput('dynamicInput');">
+                </td></tr>
+                <tr> <td>&nbsp;</td> <td align=left> <input type="submit" value="save guest info" /> </td></tr>
+            </form>
+        </table>
+        </p>
     </header>
 </article>
 {% endblock %}

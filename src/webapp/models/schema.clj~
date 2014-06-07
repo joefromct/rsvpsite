@@ -16,12 +16,12 @@
 (defdb db  db-spec)
 
 (defentity entree )
-(defentity party )
-
 (defentity guest-detail
   (table :guest_detail :guest-detail )
-  (has-one entree)
-  (has-one party ))
+  (has-one entree) ) 
+
+(defentity party )
+  (has-many guest-detail ) 
 
 #_(def db-spec
   {:subprotocol "postgresql"

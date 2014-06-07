@@ -15,14 +15,10 @@
 
 (defn rsvp-save [args]
   (let 
-    [id                 (select-keys  (session/get :party) [:id])
-     update-dictionary  (apply dissoc args [:myGuests ])  ]
+    [id (select-keys (session/get :party) [:id])
+     update-dictionary  (update-in  args [ :estimated_number_in_party] #(Integer. %) ) ] 
     (db/crud-update-party  update-dictionary id )
-    (session/put! :party 
-                  (select-keys  
-                    (db/crud-read-party-by-id  1) 
-                    [:id :party_name]))
-    (session/flash-put! :messages  (str "did an update args was "  args))
+    (session/flash-put! :messages  (str "updated changes." ))
     (resp/redirect "/rsvp-manage"))) 
 
 (defn handle-login [word]
@@ -32,7 +28,7 @@
     (if (and party
              (= word (:secret_word party)))
       (do      
-        (session/put! :party (select-keys  party [:id :party_name ])) 
+        (session/put! :party (select-keys  party [:id :party_name])) 
         (session/flash-put! :messages "Message - Now that your logged in you can pick food, manage guests, etc.") 
         ;(resp/redirect "/rsvp/manage" )
         (resp/redirect "/rsvp-manage"))
@@ -66,6 +62,6 @@
    (POST "/rsvp"        [word]     (handle-login word ))
    (GET  "/rsvp-manage" []         (restricted (rsvp-manage )))
    (POST "/rsvp-manage" [& args ]  (restricted (rsvp-save args )))
-   (GET  "/rsvp-manage-details" [] (restricted (rsvp-manage-details )))
+   (GET  "/rsvp-manage-details" [] (restricted (rsvp-manage )))
    (GET  "/logout"      []         (logout)))
 

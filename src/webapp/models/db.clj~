@@ -21,6 +21,7 @@
 (def crud-create-party        (h/crud-create "party"        ))
 (def crud-create-guest-detail (h/crud-create "guest-detail" ))
 
+
 (defn get-party-by-word [word]
   (first (select party
                  (where {:secret_word word})
@@ -39,7 +40,6 @@
     (select party
             (fields  :email_address
                     :estimated_number_in_party
-                    :party_name
                     :country
                     :city
                     :state

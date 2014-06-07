@@ -1,0 +1,4 @@
+drop table party  ; 
+drop table entree ; 
+drop table guest_detail ; 
+

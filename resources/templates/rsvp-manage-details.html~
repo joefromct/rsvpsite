@@ -1,0 +1,41 @@
+{% extends "templates/base.html" %}
+{% block content %}
+{{dynamic-content}} 
+<article >
+    <header>
+        <h2>RSVP Guest Details for {{party}} </h2> 
+        <table border=1 cellpad=0 cellspace=0 width=300px>
+
+
+<form action="/rsvp-manage-details" method="POST">
+t_id
+entree_id
+dietary_requirements
+                
+                <tr>
+                    <td>Number in Party: </td>
+                    <td><select type="number"  name="estimated_number_in_party" style="width: 50px;" >
+                            <option value="1" {% ifequal estimated_number_in_party "1" %} selected {% endifequal %} >1</option>
+                            <option value="2" {% ifequal estimated_number_in_party "2" %} selected {% endifequal %} >2</option>
+                            <option value="3" {% ifequal estimated_number_in_party "3" %} selected {% endifequal %} >3</option>
+                            <option value="4" {% ifequal estimated_number_in_party "4" %} selected {% endifequal %} >4</option>
+                            <option value="5" {% ifequal estimated_number_in_party "5" %} selected {% endifequal %} >5</option>
+                        </select> 
+                    </td>
+                </tr>
+                <tr> <td> Country</td>           <td> <input id="country"           size=30 name="country"           placeholedr="no" type="text" value="{{country}}" />  </td></tr> 
+                <tr> <td> City</td>              <td> <input id="city"              size=30 name="city"              placeholedr="no" type="text" value="{{city}}" />  </td></tr> 
+                <tr> <td> State</td>             <td> <input id="state"             size=30 name="state"             placeholedr="no" type="text" value="{{state}}" />  </td></tr> 
+                <tr> <td> Postal Code</td>       <td> <input id="postal_code"       size=30 name="postal_code"       placeholedr="no" type="text" value="{{postal_code}}" />  </td></tr> 
+                <tr> <td> Mailing Address 1</td> <td> <input id="mailing_address_1" size=30 name="mailing_address_1" placeholedr="no" type="text" value="{{mailing_address_1}}" />  </td></tr> 
+                <tr> <td> Mailing Address 2</td> <td> <input id="mailing_address_2" size=30 name="mailing_address_2" placeholedr="no" type="text" value="{{mailing_address_2}}" />  </td></tr> 
+                <tr> <td> Mailing Address 3</td> <td> <input id="mailing_address_3" size=30 name="mailing_address_3" placeholedr="no" type="text" value="{{mailing_address_3}}" />  </td></tr> 
+                <tr> <td>&nbsp;</td> <td align=left> <input type="submit" value="save" /> </td></tr>
+            </form>
+        </table>
+
+        </p>
+    </header>
+</article>
+{% endblock %}
+

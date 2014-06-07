@@ -1,0 +1,21 @@
+{% extends "templates/base.html" %}
+{% block content %}
+{{dynamic-content}} 
+<article >
+    <header>
+        <h2>RSVP Guest Details for {{party}} </h2> 
+        <table border=1 cellpad=0 cellspace=0 width=300px>
+
+
+<form action="/rsvp-manage-details" method="POST">
+t_id
+entree_id
+dietary_requirements
+                
+        </table>
+
+        </p>
+    </header>
+</article>
+{% endblock %}
+

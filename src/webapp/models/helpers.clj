@@ -8,7 +8,6 @@
 ; create-model-fns taken from: https://github.com/cldwalker/datomico/blob/master/src/datomico/core.clj
 ; create-model-fn taken from: https://github.com/cldwalker/datomico/blob/master/src/datomico/model.clj
 
-
 (defn crud-create [entity]
   "Returns crud-insert function for a passed entity."
   (fn
