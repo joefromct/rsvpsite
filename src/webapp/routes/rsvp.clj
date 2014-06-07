@@ -1,17 +1,25 @@
 (ns webapp.routes.rsvp 
   (:use 
-   [ compojure.core]
-   [taoensso.timbre :only [debug info]]
+   [compojure.core]
    [clojure.pprint]     )
-  (:require [webapp.views.layout :as layout]
-            [webapp.models.db    :as db ]
-            [noir.util.route :refer [restricted]]
-            [webapp.util         :as util]
-            [noir.response       :as resp]
-            [noir.session        :as session]
-            [noir.util.crypt     :as crypt]
-            [selmer.parser       :as sp ] 
-            [noir.validation     :as vali]))
+  (:require 
+   [webapp.views.layout :as layout]
+   [webapp.models.db :as db ]
+   [noir.util.route  :refer [restricted]]
+   [webapp.util      :as util]
+   [noir.response    :as resp]
+   [noir.session     :as session]
+   [taoensso.timbre  :as timbre]
+   [noir.util.crypt  :as crypt]
+   [selmer.parser    :as sp ] 
+   [noir.validation  :as vali]))
+
+(defn session-put [{party_name :party_name id :id} ]
+  (timbre/info party_name) 
+  (session/put! :party 
+                (select-keys  
+                 (db/crud-read-party-by-id  1) 
+                 [:id party_name])))
 
 (defn rsvp-save [args]
   (let 
@@ -29,11 +37,12 @@
   (let [
         party (db/get-party-by-word word)
         ]
+    (timbre/info "logging in") 
     (if (and party
              (= word (:secret_word party)))
       (do      
         (session/put! :party (select-keys  party [:id :party_name ])) 
-        (session/flash-put! :messages "Message - Now that your logged in you can pick food, manage guests, etc.") 
+        (session/flash-put! :messages (str party "Message - Now that your logged in you can pick food, manage guests, etc.")) 
         ;(resp/redirect "/rsvp/manage" )
         (resp/redirect "/rsvp-manage"))
       (do 

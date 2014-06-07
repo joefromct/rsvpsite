@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{servlet-context}}/css/skel-noscript.css" />
     <link rel="stylesheet" href="{{servlet-context}}/css/style.css" />
     <link rel="stylesheet" href="{{servlet-context}}/css/style-n1.css" />
+    <link href='http://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css’>
 </noscript>
 <body class="no-sidebar">
 
@@ -59,8 +60,8 @@
                 </ul>
                 </li>
                 <li class="break">
-                <a href="">RSVP and Menu Selection</a>
-                  <a href="">Contact</a>
+                <a href="/rsvp">RSVP and Menu Selection</a>
+                  <a href="/contact">Contact</a>
                      
                      
                     
@@ -89,51 +90,42 @@
 <p>Hi {{ party.party_name }}  </p>
 {% endif %}
 
-<div id="background">
-    <img src="/images/pink_rose.jpg" class="stretch" alt="" />
-</div>
 
 <div class=container>             
+ <br>
 {% block content %}
         <!-- Main Wrapper -->
-        <h3><span style="color: #f08c89"><center>Lucy and Joe's Wedding</center></span></h2>
         
-        <p>
-        </p>
+<div style="width: 60%">        
         <p> We are delighted to be
         holding our wedding on <span style="color: #f08c89">26 October
             2014</span></color> in Connecticut.  </p>
         <p>It has been an exciting year
         with our big move to the States and
-        we are so happy to 
+        we are so happy to
         finally celebrate our marriage with
         all of our friends and family.
         </p>
         
         <p> We would like to thank
-        everyone, both here and across the
-        pond, for your continual help and
+        everyone, both home and abroad, for your love and
         support, especially over this past
-        year, we are very lucky to have
-        such fantastic people in our lives.</p>
-        <p> We would also like to thank
-        those of you coming from the UK for
-        making the effort to join us in
-        celebrating our special day. </p>
+        year.</p>
+        
         <p>Love Lucy and Joe.</p>
-
+       </div> 
 {% endblock %}
 </div>
 
-    <!-- Footer Wrapper -->
-
-    <table width=100%>
+  <div style="vertical-align: bottom"> 
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="width: 100%;" > 
       <tr> 
       <tr>
         <td valign="top" style="white-space:nowrap; background: url(images/bike_1.png); width: 231px; height: 113px;">&nbsp;</td>
         <td valign="top" style="white-space:nowrap; background: url(images/bike_2.png)">&nbsp; </td>
       </tr> 
     </table>
+      </div> 
 </body>
 </html>
 

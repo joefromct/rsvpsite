@@ -69,7 +69,7 @@
 			font-weight: 600;
 			letter-spacing: 3px;
 			text-align: center;
-/*			text-transform: uppercase; */ 
+	/*		text-transform: uppercase; */
 		}
 
 	#nav
@@ -220,11 +220,9 @@
 
 			background-size: cover;
 		*/
-	background-size: cover;
-
+		
+		background-size: 100% 620%;
 	}
-
-
 	
 		.homepage #header-wrapper
 		{
@@ -236,16 +234,64 @@
 				background-size: cover;
 			*/
 
-		background-size: cover;
+			background-size: 100% 100%;
 		}
-
-
+	
+	#promo-wrapper
+	{
+		padding: 6em 0 6em 0;
+	}
 	
 	#footer-wrapper
 	{
 		padding: 6em 0 6em 0;
 	}
 
+/*********************************************************************************/
+/* Hero                                                                          */
+/*********************************************************************************/
+
+	#hero
+	{
+	}
+	
+		#hero h2
+		{
+			font-size: 3em;
+		}
+		
+		#hero p
+		{
+			font-size: 1.5em;
+			line-height: 1.5em;
+		}
+		
+		#hero .button
+		{
+			font-size: 1.25em;
+		}
+		
+/*********************************************************************************/
+/* Promo                                                                         */
+/*********************************************************************************/
+
+	#promo
+	{
+		padding: 1.75em 2.5em 1.75em 2.5em;
+		display: inline-block;
+	}
+	
+		#promo .button
+		{
+			font-size: 1.25em;
+		}
+		
+		#promo h2
+		{
+			display: inline-block;
+			margin-right: 1em;
+			font-size: 1.75em;
+		}
 
 /*********************************************************************************/
 /* Main                                                                          */
@@ -254,43 +300,38 @@
 	#main
 	{
 		padding-bottom: 4em;
-		float:left;
 	}
 
-.bgSizeCover {
-  height: 200px;
-  background-size: cover;
-  color: #000; text-shadow: 1px 1px 0 #fff;}
 /*********************************************************************************/
 /* Content                                                                       */
 /*********************************************************************************/
 
 	.right-sidebar #content
 	{
-		padding-right: 6em;
+		padding-right: 2em;
 	}
 
 	.left-sidebar #content
 	{
-		float: left;
+		padding-left: 2em;
 	}
 
 /*********************************************************************************/
 /* Sidebar                                                                       */
 /*********************************************************************************/
 
-	#aside
+	#sidebar
 	{
 	}
 	
-		#aside section
+		#sidebar section
 		{
 			border-top: solid 1px #d2d7dc;
 			margin-top: 3em;
 			padding-top: 3em;
 		}
 
-		#aside section:first-child
+		#sidebar section:first-child
 		{
 			border-top: 0;
 			margin-top: 0;
@@ -307,7 +348,7 @@
 		
 		#footer header.major
 		{
-			margin-bottom: 2em;
+			margin-bottom: 3em;
 		}
 
 /*********************************************************************************/
@@ -316,6 +357,6 @@
 
 	#copyright
 	{
-		padding-top: 2em;
-		margin-top: 4em;
+		padding-top: 4em;
+		margin-top: 6em;
 	}

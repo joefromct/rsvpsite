@@ -1,7 +1,6 @@
-(ns webapp.test.handler
-  (:use clojure.test
-        ring.mock.request
-        webapp.handler))
+(ns webapp.test.rsvp-test
+  (:use 
+        [webapp.]))
 
 (deftest test-app
   (testing "main route"
