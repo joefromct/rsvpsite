@@ -369,48 +369,17 @@ html {
 				}
 			
 	/* Tables */
-	
-		table
-		{
-			width: 100%;
-		}
-		
-			table.style1
-			{
-				width: 100%;
-			}
-			
-				table.style1 tbody tr:nth-child(2n+2)
-				{
-					background: #f4f4f4;
-				}
-				
-				table.style1 td
-				{
-					padding: 0.5em 1em 0.5em 1em;
-				}
-				
-				table.style1 th
-				{
-					text-align: left;
-					font-weight: bold;
-					padding: 0.5em 1em 0.5em 1em;
-				}
-			
-				table.style1 thead
-				{
-					background: #444;
-					color: #fff;
-				}
-				
-				table.style1 tfoot
-				{
-					background: #eee;
-				}
-				
-				table.style1 tbody
-				{
-				}
+
+                                /* 
+                                table.style1 {width: 100%;}
+                                table.background { background: url("images/pink_rose.jpg") no-repeat; } 
+                                table.style1 tbody tr:nth-child(2n+2) {background: #f4f4f4;}
+	                        table.style1 td {padding: 0.5em 1em 0.5em 1em;}
+	                        table.style1 th {text-align: left; font-weight: bold; padding: 0.5em 1em 0.5em 1em;}
+	                        table.style1 thead {background: #444; color: #fff;}
+	                        table.style1 tfoot {background: #eee;}
+	                        table.style1 tbody {}
+                               */ 
 
 	
 

@@ -220,7 +220,6 @@
 
 			background-size: cover;
 		*/
-	backgound-image: <img src="images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg">  
 	background-size: cover;
 
 	}
@@ -260,7 +259,6 @@
 
 .bgSizeCover {
   height: 200px;
-  background-image: url('images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg');
   background-size: cover;
   color: #000; text-shadow: 1px 1px 0 #fff;}
 /*********************************************************************************/
