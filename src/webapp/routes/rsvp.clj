@@ -1,17 +1,17 @@
 (ns webapp.routes.rsvp 
   (:use 
-    [ compojure.core]
-    [taoensso.timbre :only [debug info]]
-    [clojure.pprint]     )
+   [ compojure.core]
+   [taoensso.timbre :only [debug info]]
+   [clojure.pprint]     )
   (:require [webapp.views.layout :as layout]
-            [webapp.models.db :as db ]
+            [webapp.models.db    :as db ]
             [noir.util.route :refer [restricted]]
-            [webapp.util :as util]
-            [noir.response :as resp]
-            [noir.session :as session]
-            [noir.util.crypt :as crypt]
-            [selmer.parser :as sp ] 
-            [noir.validation :as vali]))
+            [webapp.util         :as util]
+            [noir.response       :as resp]
+            [noir.session        :as session]
+            [noir.util.crypt     :as crypt]
+            [selmer.parser       :as sp ] 
+            [noir.validation     :as vali]))
 
 (defn rsvp-save [args]
   (let 
@@ -66,6 +66,5 @@
    (POST "/rsvp"        [word]     (handle-login word ))
    (GET  "/rsvp-manage" []         (restricted (rsvp-manage )))
    (POST "/rsvp-manage" [& args ]  (restricted (rsvp-save args )))
-   (GET  "/rsvp-manage-details" [] (restricted (rsvp-manage-details )))
    (GET  "/logout"      []         (logout)))
 
