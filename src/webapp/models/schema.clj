@@ -6,7 +6,7 @@
 
 (def db-spec
   {:datasource
-    (doto (new PGPoolingDataSource)
+   (doto (new PGPoolingDataSource)
      (.setServerName   "localhost")
      (.setDatabaseName "webapp")
      (.setUser         "webapp")
@@ -15,12 +15,12 @@
 
 (defdb db  db-spec)
 
-(defentity entree )
+;(defentity entree )
 (defentity party )
 
 (defentity guest-detail
-  (table :guest_detail :guest-detail )
-  (has-one entree)
+  (table :guest_detail )
+; (has-one entree)
   (has-one party ))
 
 #_(def db-spec
@@ -28,3 +28,4 @@
    :subname "//localhost/webapp"
    :user "webapp"
    :password "DrRoot13"})
+

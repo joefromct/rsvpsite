@@ -25,7 +25,12 @@ body
     height: 100%; 
 }
 
-
+#messages { 
+     position:absolute;
+     width:300px;
+     left:50%;
+     background:red;
+} 
 
 	body,input,textarea,select
 	{
@@ -137,13 +142,13 @@ body
 		section,
 		article
 		{
-			margin-bottom: 3em;
+			margin-bottom: 1em;
 		}
 		
 		section > :last-child,
 		article > :last-child
 		{
-			margin-bottom: 0;
+			margin-bottom: 10;
 		}
 
 		section:last-child,
@@ -295,31 +300,23 @@ body
 
 	/* Forms */
 
-		form
-		{
-		}
+		form {}
 		
 			form .actions
-			{
-				padding-top: 0;
-			}
+			{padding-top: 0;}
 		
-			form label
-			{
-				display: block;
-			}
+/*			form label {display: block;} */
 		
 			form input.text,
 			form select,
 			form textarea
 			{
 				-webkit-appearance: none;
-				display: block;
+				display: table-cell; 
 				background: #f3f4f5;
 				border: solid 1px #d2d7dc;
 				border-radius: 0.35em;
-				width: 100%;
-				padding: 0.85em;
+				padding: 0.35em;
 				-moz-transition: background-color 0.25s ease-in-out;
 				-webkit-transition: background-color 0.25s ease-in-out;
 				-o-transition: background-color 0.25s ease-in-out;
@@ -329,15 +326,9 @@ body
 
 				form input.text:focus,
 				form select:focus,
-				form textarea:focus
-				{
-					background: #fff;
-				}
+				form textarea:focus {background: #fff;}
 				
-				form textarea
-				{
-					min-height: 7em;
-				}
+				form textarea {min-height: 2em;}
 
 				form .formerize-placeholder
 				{

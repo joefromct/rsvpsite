@@ -1,6 +1,18 @@
 (ns webapp.test.rsvp-test
   (:use 
-        [webapp.]))
+   [compojure.core]
+   [clojure.pprint]     )
+  (:require 
+   [webapp.views.layout :as layout]
+   [webapp.models.db :as db ]
+   [noir.util.route  :refer [restricted]]
+   [webapp.util      :as util]
+   [noir.response    :as resp]
+   [noir.session     :as session]
+   [taoensso.timbre  :as timbre]
+   [noir.util.crypt  :as crypt]
+   [selmer.parser    :as sp ] 
+   [noir.validation  :as vali]))
 
 (deftest test-app
   (testing "main route"
@@ -12,5 +24,10 @@
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
       (is (= (:status response) 404)))))
+
+
+
+
+
 
 

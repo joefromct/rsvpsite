@@ -14,35 +14,30 @@
    [selmer.parser    :as sp ] 
    [noir.validation  :as vali]))
 
-(defn session-put [{party_name :party_name id :id} ]
-  (timbre/info party_name) 
+(defn session-put 
+  [ {id :id } ] ; pass map with id in there
   (session/put! :party 
-                (select-keys  
-                 (db/crud-read-party-by-id  1) 
-                 [:id party_name])))
+                (select-keys (db/crud-read-party-by-id  id) [:id :party_name])))  
 
 (defn rsvp-save [args]
   (let 
-    [id                 (select-keys  (session/get :party) [:id])
-     update-dictionary  (apply dissoc args [:myGuests ])  ]
+      [id                 (select-keys  (session/get :party) [:id])
+       update-dictionary  (select-keys args [:flag_accepted :email_address :party_name ])  ]
     (db/crud-update-party  update-dictionary id )
-    (session/put! :party 
-                  (select-keys  
-                    (db/crud-read-party-by-id  1) 
-                    [:id :party_name]))
-    (session/flash-put! :messages  (str "did an update args was "  args))
+    (db/crud-refresh-guest-detail (select-keys args [:id :guest :entree :entree_notes])) 
+    (session-put id )
+    (session/flash-put! :messages (str "Saved..." (select-keys args [:id :guest :entree :entree_notes]) )) 
     (resp/redirect "/rsvp-manage"))) 
 
 (defn handle-login [word]
   (let [
         party (db/get-party-by-word word)
         ]
-    (timbre/info "logging in") 
     (if (and party
              (= word (:secret_word party)))
       (do      
         (session/put! :party (select-keys  party [:id :party_name ])) 
-        (session/flash-put! :messages (str party "Message - Now that your logged in you can pick food, manage guests, etc.")) 
+        (session/flash-put! :messages (str party "Message - logged in.")) 
         ;(resp/redirect "/rsvp/manage" )
         (resp/redirect "/rsvp-manage"))
       (do 
@@ -64,6 +59,8 @@
   (let 
     [t (db/crud-read-party-by-id (:id  (session/get :party  )))]
     (layout/render "rsvp-manage-details.html" t  )))
+
+
 
 ;{:dynamic-content blockcontent }     
 (defn logout []

@@ -16,7 +16,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.dropotron.min.js"></script>
 <script src="js/skel.min.js"></script>
-<script src="js/skel-panles.min.js"></script>
+<script src="js/jr.js"></script>
 <script src="js/init.js"></script>
 <noscript>
     <link rel="stylesheet" href="{{servlet-context}}/css/skel-noscript.css" />
@@ -81,17 +81,14 @@
         </nav>
     </div>
 </div>
-
-{% if messages  %}
-<div>{{ messages }} </div>
-{% endif %}
-
-{% if party  %}
-<p>Hi {{ party.party_name }}  </p>
-{% endif %}
-
-
 <div class=container>             
+  {% if messages  %}
+  <div id="messages" style="width:50px; margin:0; auto; background: yellow; "> {{ messages }} </div>
+  {% endif %}
+  {% if party  %}
+  Hi {{ party.party_name }}<br> 
+  {% endif %}
+
  <br>
 {% block content %}
         <!-- Main Wrapper -->

@@ -33,6 +33,7 @@
             [lein-environ "0.5.0"]
             [ragtime/ragtime.lein "0.3.6"]
             [cider/cider-nrepl "0.7.0-SNAPSHOT"] 
+            ;[cider/cider-nrepl "0.6.0"]
             ]
   :description "FIXME: write description"
   :min-lein-version "2.0.0")

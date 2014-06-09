@@ -2,35 +2,34 @@
 {% block content %}
 {{dynamic-content}} 
 <article >
-    <header>
-      {{party.party_name}} 
-      t test: {{t}} 
-        <h2>RSVP Management</h2> 
-        <table border=1 cellpad=0 cellspace=0 width=300px>
-            <script src="js/addInput.js" language="Javascript" type="text/javascript"></script>
-            <form action="/rsvp-manage" method="POST">
-                <tr>
-                    <td>party name </td> <td> <input id="party_name" size=40 name="party_name" placeholder="party_name"   type="text" value="{{party_name}}" /> </td> 
-                    <td>party email</td> <td> <input id="email" size=40 name="email_address"  placeholder="email address" type="text" value="{{email_address}}" /> </td> 
-                </tr>
-                <tr><td> Accepted?</td><td> 
-                        <select type="text" name="flag_accepted"> 
-                            <option value="  ">  </option>
-                            <option value="Yes" {% ifequal flag_accepted "Yes"          %} selected {% endifequal %} >Yes</option>
-                            <option value="No"  {% ifequal flag_accepted "No"           %} selected {% endifequal %} >No</option>
-                        </select> 
-                </td></tr> 
-                <tr>
-                </tr>
-                <tr> <td colspan=2>
-                        <div id="dynamicInput"> Guest 1<br><input type="text" name="myGuests[]" value="{{party.party_name}}" > </div>
-                        <input type="button" value="add guest" onClick="addInput('dynamicInput');">
-                </td></tr>
-                <tr> <td>&nbsp;</td> <td align=left> <input type="submit" value="save guest info" /> </td></tr>
-            </form>
-        </table>
-        </p>
-    </header>
+    <h2>RSVP Management</h2> 
+    <form action="/rsvp-manage" method="POST">
+      <div>
+        <p>
+        <label>Party Name:</label>  <input id="party_name" name="party_name" placeholder="party_name"   type="text" value="{{party_name}}" />  <br>
+        <label>Party Email:</label> <input id="email" name="email_address"   placeholder="email address" type="text" value="{{email_address}}" /><br> 
+        <label>Accepted? </label><select type="text" name="flag_accepted"> <option value="  ">  </option>
+          <option value="Yes" {% ifequal flag_accepted "Yes" %} selected {% endifequal %} >Yes</option>
+          <option value="No"  {% ifequal flag_accepted "No"  %} selected {% endifequal %} >No</option>
+        </select> 
+         </p>
+      </div>  
+      <input type="submit" value="save guest info" /> 
+      <div style="border:1px dotted black"> 
+        <div id="dynamicInput" >
+          <input type="text" name="guest[]" value="{{party.party_name}}" > 
+          <select name="entree[]"> 
+            <option>Herb Stuffed Chicken Breast</option>
+            <option>Pan Seared Samoln with Terriyaki Ginger Glaze</option>
+            <option>Grilled Top Sirloin Steak</option>
+            <option>Vegetarian            </option>
+          </select>
+          <textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]"></textarea> <br>
+        </div>
+        <center>
+        <input type="button" value="add guest" onClick="addInput('dynamicInput');"><br>
+        </center>
+        <div>
+</form>
 </article>
 {% endblock %}
-
