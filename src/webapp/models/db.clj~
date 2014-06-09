@@ -66,4 +66,6 @@
             :entree ["Herb Stuffed Chicken Breast" "Pan Seared Samoln with Terriyaki Ginger Glaze" "Vegetarian" "Pan Seared Samoln with Terriyaki Ginger Glaze"]
             :guest ["Bob33" "2" "33" "4"]} 
   )
+(def id {:id 17}) 
 
+(apply merge-with conj id dicts) 
