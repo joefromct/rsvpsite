@@ -32,8 +32,6 @@
   :plugins [[lein-ring "0.8.10"]
             [lein-environ "0.5.0"]
             [ragtime/ragtime.lein "0.3.6"]
-            [cider/cider-nrepl "0.7.0-SNAPSHOT"] 
-            ;[cider/cider-nrepl "0.6.0"]
-            ]
+            [cider/cider-nrepl "0.7.0-SNAPSHOT"]]
   :description "FIXME: write description"
   :min-lein-version "2.0.0")

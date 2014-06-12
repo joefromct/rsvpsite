@@ -12,22 +12,25 @@
    [taoensso.timbre  :as timbre]
    [noir.util.crypt  :as crypt]
    [selmer.parser    :as sp ] 
-   [noir.validation  :as vali]))
+   [noir.validation  :as vali])) 
 
 (defn session-put 
   [ {id :id } ] ; pass map with id in there
   (session/put! :party 
-                (select-keys (db/crud-read-party-by-id  id) [:id :party_name])))  
+                (select-keys (db/crud-read-party-by-id  id) 
+                             [:id :party_name])))  
 
 (defn rsvp-save [args]
   (let 
       [id                 (select-keys  (session/get :party) [:id])
        update-dictionary  (select-keys args [:flag_accepted :email_address :party_name ])  ]
     (db/crud-update-party  update-dictionary id )
-    (db/crud-refresh-guest-detail (select-keys args [:id :guest :entree :entree_notes])) 
+    (session/flash-put! :messages (str (count (:entree args)) ))
+
+    (db/crud-refresh-guest-detail id (select-keys args [:guest :entree :entree_notes])) 
     (session-put id )
-    (session/flash-put! :messages (str "Saved..." (select-keys args [:id :guest :entree :entree_notes]) )) 
-    (resp/redirect "/rsvp-manage"))) 
+
+    (resp/redirect "/rsvp-manage")))  
 
 (defn handle-login [word]
   (let [
@@ -38,7 +41,6 @@
       (do      
         (session/put! :party (select-keys  party [:id :party_name ])) 
         (session/flash-put! :messages (str party "Message - logged in.")) 
-        ;(resp/redirect "/rsvp/manage" )
         (resp/redirect "/rsvp-manage"))
       (do 
         (session/flash-put! :messages "Wrong Word?") 
@@ -51,15 +53,11 @@
 
 (defn rsvp-manage []
   (let 
-    [t (db/crud-read-party-by-id (:id  (session/get :party  ))  )]
-    (layout/render "rsvp-manage.html" t  )))
-
-
-(defn rsvp-manage-details []
-  (let 
-    [t (db/crud-read-party-by-id (:id  (session/get :party  )))]
-    (layout/render "rsvp-manage-details.html" t  )))
-
+      [
+       guest-master (db/crud-read-party-by-id        (:id  (session/get :party  ))  )
+       guest-detail (db/crud-read-guest-detail-by-id (:id  (session/get :party  ))  )
+       ]
+    (layout/render "rsvp-manage.html" {:guest-master guest-master :guest-detail guest-detail })))
 
 
 ;{:dynamic-content blockcontent }     

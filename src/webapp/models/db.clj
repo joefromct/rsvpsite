@@ -6,7 +6,8 @@
         [webapp.models.schema]
         )
   (:require
-    [webapp.models.helpers :as h ])) 
+   [taoensso.timbre  :as timbre]
+   [webapp.models.helpers :as h ]))  
 
 ;(create-fun "read" "entity")
 ;(crud-read-entity "entree" )
@@ -17,7 +18,6 @@
   (update party 
           (set-fields fields)
           (where args )))  
-
 
 (defn get-party-by-word [word]
   (first (select party
@@ -47,23 +47,23 @@
                    :mailing_address_2
                    :mailing_address_3
                    :flag_accepted)
-           (where {:id id}))))
+           (where {:id id})))) 
+
+(defn crud-read-guest-detail-by-id [id]
+  (select guest-detail (where {:id id}))) 
+
 
 (defn crud-refresh-guest-detail [id dicts ] 
   "Gets an id dictionary with of form {:id #}, and then the dicts
   dictionary has three keys, each with a vector (even lengths) for the
   values to be destructured."
-  (for [c (range 0 (count (:entree dicts))) ]
-    (let [ insert-dict 
-          {
-           :id     (:id id) 
-           :entree (nth  (:entree dicts) c)
-           :entree_notes (nth  (:entree_notes  dicts) c)
-           :guest (nth  (:guest  dicts) c)}] 
-      (insert guest-detail (values  insert-dict)))))
-
-(def dicts {:entree_notes ["1" "2" "3" "4"]
-            :entree ["Herb Stuffed Chicken Breast" "Pan Seared Samoln with Terriyaki Ginger Glaze" "Vegetarian" "Pan Seared Samoln with Terriyaki Ginger Glaze"]
-            :guest ["Bob33" "2" "33" "4"]} 
-  )
+  (let [
+        normalize (fn  [orders]
+                    (let [os (apply map vector (vals orders))
+                          ks (keys orders)]
+                      (map #(zipmap ks %) os)))
+        orders-list  (normalize dicts) 
+        orders-list-with-id (map #(merge % id ) orders-list ) ] 
+    (delete guest-detail (where id) ) 
+    (insert guest-detail (values orders-list-with-id))))
 

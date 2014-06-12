@@ -1,20 +1,17 @@
 {% extends "templates/base.html" %}
 {% block content %}
-        <h2><span style="color: #f08c89">Kindly respond by the 1st of August</span></color></h2>
+        <h2><span style="color: #f08c89">Kindly respond by the 21st of August</span></color></h2>
         <article >
             <header>
-                <h2>Secret RSVP phrase:</h2> 
+                <h2>RSVP Password (as shown on your invitation):</h2> 
                 <p>
                 <form action="/rsvp" method="POST">
-                    <input id="word"   name="word"   placeholder="Fruit Candy" type="text" />
+                    <input id="word"   name="word"   placeholder="Password" type="text" />
                     <input type="submit" value="login" />
                 </form>
                 </p>
             </header>
         </article>
-	<center>
-	<img src="images/orchid.jpg" repeat>	
-	</center>
 	
          <h2><span style="color: #f08c89">Please indicate each guest's entree choice</span></color></h2>
          <ul>
@@ -24,9 +21,5 @@
          	<li>Vegetarian</li>
          	<li>Please advise of any dietary requirements.</li>
          </ul>
-
-         <center>
-	<img src="images/orchid.jpg" repeat>	
-	</center>
 
 {% endblock %}
