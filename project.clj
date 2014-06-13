@@ -27,7 +27,6 @@
              :production {:ring
                           {:open-browser? false, :stacktraces? false, :auto-reload? false}
                           :env {
-                                :dev false 
                                 :pg-server-name      "ec2-54-225-101-199.compute-1.amazonaws.com"
                                 :pg-database         "de9fht8m1k5pfo"
                                 :pg-user             "dmkypsxnomgpkr"

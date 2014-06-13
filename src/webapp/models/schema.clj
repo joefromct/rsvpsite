@@ -18,7 +18,7 @@
   {:datasource
    (doto (new PGPoolingDataSource)
      (.setServerName     (env :pg-server-name        ))
-     (.Setdatabasename   (env :pg-database           ))
+     (.setdatabasename   (env :pg-database           ))
      (.setUser           (env :pg-user               ))
      (.setPassword       (env :pg-password           ))
      (.setMaxConnections (env :pg-max-connections  )))})
