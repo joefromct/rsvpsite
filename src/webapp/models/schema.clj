@@ -4,13 +4,23 @@
         [clojure.walk])
   (:import javax.sql.DataSource, org.postgresql.ds.PGPoolingDataSource))
 
-(def db-spec
+#_(def db-spec
   {:datasource
    (doto (new PGPoolingDataSource)
      (.setServerName   "localhost")
      (.setDatabaseName "webapp")
      (.setUser         "webapp")
      (.setPassword     "DrRoot13")
+     (.setMaxConnections 30))})
+
+
+(def db-spec
+  {:datasource
+   (doto (new PGPoolingDataSource)
+     (.setServerName   "ec2-54-225-101-199.compute-1.amazonaws.com")
+     (.setDatabaseName "de9fht8m1k5pfo")
+     (.setUser         "dmkypsxnomgpkr")
+     (.setPassword     "H0S9EDBPxKsAfX_OuVCNgMvtS1")
      (.setMaxConnections 30))})
 
 (defdb db  db-spec)
