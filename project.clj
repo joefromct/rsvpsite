@@ -25,7 +25,15 @@
             :database "jdbc:postgresql://localhost/webapp?user=webapp&password=DrRoot13"}
   :profiles {:uberjar {:aot :all},
              :production {:ring
-                          {:open-browser? false, :stacktraces? false, :auto-reload? false}},
+                          {:open-browser? false, :stacktraces? false, :auto-reload? false}
+                          :env {
+                                :dev false 
+                                :pg-server-name      "ec2-54-225-101-199.compute-1.amazonaws.com"
+                                :pg-database         "de9fht8m1k5pfo"
+                                :pg-user             "dmkypsxnomgpkr"
+                                :pg-password         "H0S9EDBPxKsAfX_OuVCNgMvtS1"
+                                :pg-max-connections  20
+                                }},
              :dev {:dependencies [[ring-mock "0.1.5"] [ring/ring-devel "1.2.2"]],
                    :env {
                          :dev                 true        
