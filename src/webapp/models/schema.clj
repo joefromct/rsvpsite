@@ -17,10 +17,10 @@
 (def db-spec
   {:datasource
    (doto (new PGPoolingDataSource)
-     (.setServerName     (env :pg-server-name        ))
-     (.setdatabasename   (env :pg-database           ))
-     (.setUser           (env :pg-user               ))
-     (.setPassword       (env :pg-password           ))
+     (.setServerName     (env :pg-server-name      ))
+     (.setDatabaseName   (env :pg-database         ))
+     (.setUser           (env :pg-user             ))
+     (.setPassword       (env :pg-password         ))
      (.setMaxConnections (env :pg-max-connections  )))})
 
 (defdb db  db-spec)
