@@ -28,12 +28,22 @@
           </select>
           <textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]">{{guest.entree_notes}}</textarea> <br>
 {% endfor %}
+{% if not guest-detail %}
+<input type='text' placeholder='Guest' name='guest[]'  value="{{guest-master.party_name}}"> 
+<select name='entree[]'> 
+<option></option>
+<option>Herb Stuffed Chicken Breast</option>
+<option>Pan Seared Samoln with Terriyaki Ginger Glaze</option>
+<option>Grilled Top Sirloin Steak</option>
+<option>Vegetarian            </option>
+</select> 
+<textarea style='height: 45px; width: 352px; ' placeholder='special meal instructions' name='entree_notes[]'></textarea> <br>"
+{% endif %}
         </div>
         <center>
-        <input type="button" value="add guest" onClick="addInput('dynamicInput');"><br>
+          <input type="button" value="add guest" onClick="addInput('dynamicInput');"><br>
         </center>
         <div>
-
 </form>
 </article>
 {% endblock %}

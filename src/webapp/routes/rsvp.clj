@@ -25,7 +25,7 @@
       [id                 (select-keys  (session/get :party) [:id])
        update-dictionary  (select-keys args [:flag_accepted :email_address :party_name ])  ]
     (db/crud-update-party  update-dictionary id )
-    (session/flash-put! :messages (str (count (:entree args)) ))
+    (session/flash-put! :messages (str ("updated guests...") ))
 
     (db/crud-refresh-guest-detail id (select-keys args [:guest :entree :entree_notes])) 
     (session-put id )
