@@ -40,7 +40,7 @@
              (= word (:secret_word party)))
       (do      
         (session/put! :party (select-keys  party [:id :party_name ])) 
-        (session/flash-put! :messages (str party "Message - logged in.")) 
+;       (session/flash-put! :messages (str "logged in.")) 
         (resp/redirect "/rsvp-manage"))
       (do 
         (session/flash-put! :messages "Wrong Word?") 
