@@ -39,8 +39,7 @@
                          :pg-server-name      "localhost" 
                          :pg-database         "webapp"     
                          :pg-user             "webapp"     
-                         :pg-password         "DrRoot13"   
-                         :pg-max-connections  20}}}
+                         :pg-password         "DrRoot13"}}}
   :url "http://rochettes.com/"
   :plugins [[lein-ring "0.8.10"]
             [lein-environ "0.5.0"]

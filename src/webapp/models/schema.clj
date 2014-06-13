@@ -21,7 +21,8 @@
      (.setDatabaseName   (env :pg-database         ))
      (.setUser           (env :pg-user             ))
      (.setPassword       (env :pg-password         ))
-     (.setMaxConnections (env :pg-max-connections  )))})
+     ;    #_(.setMaxConnections (env :pg-max-connections  ))
+     )})
 
 (defdb db  db-spec)
 
