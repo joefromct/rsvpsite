@@ -1,8 +1,9 @@
 (ns webapp.models.schema
   (:use korma.core
         [korma.db :only (defdb)]
+        [environ.core]
         [clojure.walk])
-  (:import javax.sql.DataSource, org.postgresql.ds.PGPoolingDataSource))
+  (:import javax.sql.DataSource, org.postgresql.ds.PGPoolingDataSource)) 
 
 #_(def db-spec
   {:datasource
@@ -13,15 +14,14 @@
      (.setPassword     "DrRoot13")
      (.setMaxConnections 30))})
 
-
 (def db-spec
   {:datasource
    (doto (new PGPoolingDataSource)
-     (.setServerName   "ec2-54-225-101-199.compute-1.amazonaws.com")
-     (.setDatabaseName "de9fht8m1k5pfo")
-     (.setUser         "dmkypsxnomgpkr")
-     (.setPassword     "H0S9EDBPxKsAfX_OuVCNgMvtS1")
-     (.setMaxConnections 30))})
+     (.setServerName     (env :pg-server-name        ))
+     (.setDatabaseName   (env :pg-database           ))
+     (.setUser           (env :pg-user               ))
+     (.setPassword       (env :pg-password           ))
+     (.setMaxConnections (env :pg-max-connections  )))})
 
 (defdb db  db-spec)
 
@@ -32,9 +32,3 @@
   (table :guest_detail )
 ; (has-one entree)
   (has-one party ))
-
-#_(def db-spec
-  {:subprotocol "postgresql"
-   :subname "//localhost/webapp"
-   :user "webapp"
-   :password "DrRoot13"})

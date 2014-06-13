@@ -18,26 +18,24 @@
       <div style="border:1px dotted black"> 
         <div id="dynamicInput" >
 {% for guest in guest-detail %} 
-          <input type="text" name="guest[]" value="{{guest.guest}}" > 
-          <select name="entree[]"> 
-            <option {%ifequal guest.entree "Herb Stuffed Chicken Breast"                   %} selected {% endifequal %} >Herb Stuffed Chicken Breast                   </option>
+          <label>guest name</><input type="text" name="guest[]" value="{{guest.guest}}" > <br>
+          <label>entree </label><select name="entree[]"> 
             <option {%ifequal guest.entree "Herb Stuffed Chicken Breast"                   %} selected {% endifequal %} >Herb Stuffed Chicken Breast                   </option>
             <option {%ifequal guest.entree "Pan Seared Samoln with Terriyaki Ginger Glaze" %} selected {% endifequal %} >Pan Seared Samoln with Terriyaki Ginger Glaze </option>
             <option {%ifequal guest.entree "Grilled Top Sirloin Steak"                     %} selected {% endifequal %} >Grilled Top Sirloin Steak                     </option>
             <option {%ifequal guest.entree "Vegetarian"                                    %} selected {% endifequal %} >Vegetarian                                    </option>
-          </select>
-          <textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]">{{guest.entree_notes}}</textarea> <br>
+          </select><br>
+          <label>special entree instructions</label><textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]">{{guest.entree_notes}}</textarea> <hr>
 {% endfor %}
 {% if not guest-detail %}
-<input type='text' placeholder='Guest' name='guest[]'  value="{{guest-master.party_name}}"> 
-<select name='entree[]'> 
-<option></option>
-<option>Herb Stuffed Chicken Breast</option>
-<option>Pan Seared Samoln with Terriyaki Ginger Glaze</option>
-<option>Grilled Top Sirloin Steak</option>
-<option>Vegetarian            </option>
-</select> 
-<textarea style='height: 45px; width: 352px; ' placeholder='special meal instructions' name='entree_notes[]'></textarea> <br>"
+           <label>guest name</><input type="text" name="guest[]" value="{{guest-master.party_name}}" > <br>
+          <label>entree </label><select name="entree[]"> 
+            <option >Herb Stuffed Chicken Breast                   </option>
+            <option >Pan Seared Samoln with Terriyaki Ginger Glaze </option>
+            <option >Grilled Top Sirloin Steak                     </option>
+            <option >Vegetarian                                    </option>
+          </select><br>
+          <label>special entree instructions</label><textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]"></textarea> <hr>
 {% endif %}
         </div>
         <center>

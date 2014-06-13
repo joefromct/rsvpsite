@@ -27,11 +27,17 @@
              :production {:ring
                           {:open-browser? false, :stacktraces? false, :auto-reload? false}},
              :dev {:dependencies [[ring-mock "0.1.5"] [ring/ring-devel "1.2.2"]],
-                   :env {:dev true}}}
-  :url "http://example.com/FIXME"
+                   :env {
+                         :dev                 true        
+                         :pg-server-name      "localhost" 
+                         :pg-database         "webapp"     
+                         :pg-user             "webapp"     
+                         :pg-password         "DrRoot13"   
+                         :pg-max-connections  20}}}
+  :url "http://rochettes.com/"
   :plugins [[lein-ring "0.8.10"]
             [lein-environ "0.5.0"]
             [ragtime/ragtime.lein "0.3.6"]
             [cider/cider-nrepl "0.7.0-SNAPSHOT"]]
-  :description "FIXME: write description"
+  :description "FIXME: first compojure + ring + selmer + postgres app"
   :min-lein-version "2.0.0")

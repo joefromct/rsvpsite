@@ -25,8 +25,7 @@
       [id                 (select-keys  (session/get :party) [:id])
        update-dictionary  (select-keys args [:flag_accepted :email_address :party_name ])  ]
     (db/crud-update-party  update-dictionary id )
-    (session/flash-put! :messages (str ("updated guests...") ))
-
+    (session/flash-put! :messages "updated guests...")
     (db/crud-refresh-guest-detail id (select-keys args [:guest :entree :entree_notes])) 
     (session-put id )
 
@@ -40,7 +39,7 @@
              (= word (:secret_word party)))
       (do      
         (session/put! :party (select-keys  party [:id :party_name ])) 
-;       (session/flash-put! :messages (str "logged in.")) 
+                                        ;       (session/flash-put! :messages (str "logged in.")) 
         (resp/redirect "/rsvp-manage"))
       (do 
         (session/flash-put! :messages "Wrong Word?") 
