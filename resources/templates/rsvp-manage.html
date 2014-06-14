@@ -20,6 +20,7 @@
 {% for guest in guest-detail %} 
           <label>guest name</><input type="text" name="guest[]" value="{{guest.guest}}" > <br>
           <label>entree </label><select name="entree[]"> 
+            <option                                                                                                     > </option>
             <option {%ifequal guest.entree "Herb Stuffed Chicken Breast"                   %} selected {% endifequal %} >Herb Stuffed Chicken Breast                   </option>
             <option {%ifequal guest.entree "Pan Seared Samoln with Terriyaki Ginger Glaze" %} selected {% endifequal %} >Pan Seared Samoln with Terriyaki Ginger Glaze </option>
             <option {%ifequal guest.entree "Grilled Top Sirloin Steak"                     %} selected {% endifequal %} >Grilled Top Sirloin Steak                     </option>
@@ -30,6 +31,7 @@
 {% if not guest-detail %}
            <label>guest name</><input type="text" name="guest[]" value="{{guest-master.party_name}}" > <br>
           <label>entree </label><select name="entree[]"> 
+            <option selected > </option>
             <option >Herb Stuffed Chicken Breast                   </option>
             <option >Pan Seared Samoln with Terriyaki Ginger Glaze </option>
             <option >Grilled Top Sirloin Steak                     </option>
