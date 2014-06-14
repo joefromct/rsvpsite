@@ -20,8 +20,6 @@
           (where args )))  
 
 
-;(clojure.string/trim (clojure.string/lower-case word))
-
 (defn get-party-by-word [word]
   (first (select party
                  (where {:secret_word (clojure.string/lower-case 

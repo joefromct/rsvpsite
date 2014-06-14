@@ -33,6 +33,7 @@
 
 (defn handle-login [word]
   (let [
+        word (clojure.string/trim (clojure.string/lower-case word ))
         party (db/get-party-by-word word)
         ]
     (if (and party
@@ -42,7 +43,7 @@
                                         ;       (session/flash-put! :messages (str "logged in.")) 
         (resp/redirect "/rsvp-manage"))
       (do 
-        (session/flash-put! :messages "Wrong Word?") 
+        (session/flash-put! :messages (str "Wrong Word?" word )) 
         (resp/redirect "/rsvp" )))))
 
 (defn rsvp-home [] 
