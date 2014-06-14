@@ -33,7 +33,7 @@
 
 (defn handle-login [word]
   (let [
-        party (db/get-party-by-word (clojure.string/trim (clojure.string/lower-case word)))
+        party (db/get-party-by-word word)
         ]
     (if (and party
              (= word (:secret_word party)))

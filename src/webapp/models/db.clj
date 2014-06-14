@@ -19,10 +19,13 @@
           (set-fields fields)
           (where args )))  
 
+
+;(clojure.string/trim (clojure.string/lower-case word))
+
 (defn get-party-by-word [word]
   (first (select party
                  (where {:secret_word (clojure.string/lower-case 
-                                       (clojure.string/trim  word))})
+                                       (clojure.string/trim word))})
                  (fields :id
                          :postal_code
                          :secret_word
