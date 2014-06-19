@@ -9,7 +9,7 @@
 
 (defn home-page []
   (layout/render
-    "index-base.html" {:content (str "some content blah blah")}))
+    "base.html" {:content (str "some content blah blah")}))
 
 (defn our-proposal []      ( layout/render "our-proposal.html"      {:dynamic-content (str " our-proposal.html      content")} )  ) 
 (defn wedding-party []     ( layout/render "wedding-party.html"     {:dynamic-content (str " wedding-party.html     content")})  ) 
