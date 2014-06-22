@@ -12,9 +12,16 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
+html { 
+  background: url(images/pink_rose_01-hd_pictures.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 	body
 	{
-		background: #f5f7fa;
+		background: #f08c89;
 	}
 
 	body,input,textarea,select
@@ -109,7 +116,9 @@
 		header > span
 		{
 			display: block;
-			color: #f34848;
+			color: #42474c;
+			font-size: 14;
+			font-family: sans-serif;
 		}
 
 		header.major
@@ -124,7 +133,7 @@
 	
 	/* Sections/Articles */
 	
-		section,
+	/section,
 		article
 		{
 			margin-bottom: 3em;
@@ -403,51 +412,7 @@
 				{
 				}
 
-	/* Buttons */
-		
-		.button
-		{
-			display: inline-block;
-			color: inherit;
-			text-decoration: none;
-			border: solid 1px #c2c7cc;
-			border-radius: 0.35em;
-			padding: 0.8em 2em 0.8em 2em;
-		}
-
-			.button:hover
-			{
-				color: #f35858;
-				border-color: rgba(243,88,88,0.5);
-			}
-			
-			.button:active
-			{
-			}
-		
-			.button.alt
-			{
-			}
-
-				.button.alt:hover
-				{
-				}
-				
-				.button.alt:active
-				{
-				}
-		
-			.button.small
-			{
-			}
-			
-			.button.big
-			{
-			}
-			
-			.button.huge
-			{
-			}
+	
 
 /*********************************************************************************/
 /* Icons                                                                         */
@@ -906,6 +871,7 @@
 		position: relative;
 		background: #fff;
 		overflow-x: hidden;
+
 	}
 
 	.image-wrapper
@@ -972,7 +938,7 @@
 		position: relative;
 		border-top: solid 1px #c2c7cc;
 		background-image: url('images/footer.svg');
-		background-size: 100% 100%;
+		background-size: 500% 500%;
 		-webkit-transform: translate3d(0,0,0);
 	}
 
@@ -1016,83 +982,7 @@
 			color: #fff;
 		}
 
-/*********************************************************************************/
-/* Hero                                                                          */
-/*********************************************************************************/
 
-	#hero
-	{
-		position: relative;
-		color: #fff;
-		text-align: center;
-		z-index: 1;
-	}
-	
-		#hero h2
-		{
-			color: #fff;
-		}
-
-		#hero header > span
-		{
-			color: #fff;
-		}
-
-		#hero .button
-		{
-			background: #fff;
-			border-color: rgba(255,255,255,0);
-			color: #f08c89;
-		}
-
-			#hero .button:hover
-			{
-				border-color: rgba(255,255,255,0.75);
-				background-color: rgba(255,255,255,0.15);
-				color: #fff;
-			}
-
-		#hero a
-		{
-			color: #fff;
-			border-color: rgba(255,255,255,0.5);
-		}
-		
-			#hero a:hover
-			{
-				border-color: rgba(255,255,255,0);
-			}
-
-/*********************************************************************************/
-/* Promo                                                                         */
-/*********************************************************************************/
-
-	#promo
-	{
-		background: rgba(255,255,255,0.05);
-		border: solid 1px rgba(255,255,255,0.25);
-		border-radius: 0.5em;
-	}
-
-		#promo h2
-		{
-			color: #fff;
-		}
-		
-		#promo .button
-		{
-			background: #fff;
-			border-color: rgba(255,255,255,0);
-			color: #27636B;
-		}
-		
-			#promo .button:hover
-			{
-				border-color: rgba(255,255,255,0.75);
-				background-color: rgba(255,255,255,0.15);
-				color: #fff;
-			}
-		
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/

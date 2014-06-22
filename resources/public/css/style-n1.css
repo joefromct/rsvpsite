@@ -220,9 +220,12 @@
 
 			background-size: cover;
 		*/
-		
-		background-size: 100% 620%;
+	backgound-image: <img src="images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg">  
+	background-size: cover;
+
 	}
+
+
 	
 		.homepage #header-wrapper
 		{
@@ -234,64 +237,16 @@
 				background-size: cover;
 			*/
 
-			background-size: 100% 100%;
+		background-size: cover;
 		}
-	
-	#promo-wrapper
-	{
-		padding: 6em 0 6em 0;
-	}
+
+
 	
 	#footer-wrapper
 	{
 		padding: 6em 0 6em 0;
 	}
 
-/*********************************************************************************/
-/* Hero                                                                          */
-/*********************************************************************************/
-
-	#hero
-	{
-	}
-	
-		#hero h2
-		{
-			font-size: 3em;
-		}
-		
-		#hero p
-		{
-			font-size: 1.5em;
-			line-height: 1.5em;
-		}
-		
-		#hero .button
-		{
-			font-size: 1.25em;
-		}
-		
-/*********************************************************************************/
-/* Promo                                                                         */
-/*********************************************************************************/
-
-	#promo
-	{
-		padding: 1.75em 2.5em 1.75em 2.5em;
-		display: inline-block;
-	}
-	
-		#promo .button
-		{
-			font-size: 1.25em;
-		}
-		
-		#promo h2
-		{
-			display: inline-block;
-			margin-right: 1em;
-			font-size: 1.75em;
-		}
 
 /*********************************************************************************/
 /* Main                                                                          */
@@ -300,38 +255,44 @@
 	#main
 	{
 		padding-bottom: 4em;
+		float:left;
 	}
 
+.bgSizeCover {
+  height: 200px;
+  background-image: url('images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg');
+  background-size: cover;
+  color: #000; text-shadow: 1px 1px 0 #fff;}
 /*********************************************************************************/
 /* Content                                                                       */
 /*********************************************************************************/
 
 	.right-sidebar #content
 	{
-		padding-right: 2em;
+		padding-right: 6em;
 	}
 
 	.left-sidebar #content
 	{
-		padding-left: 2em;
+		float: left;
 	}
 
 /*********************************************************************************/
 /* Sidebar                                                                       */
 /*********************************************************************************/
 
-	#sidebar
+	#aside
 	{
 	}
 	
-		#sidebar section
+		#aside section
 		{
 			border-top: solid 1px #d2d7dc;
 			margin-top: 3em;
 			padding-top: 3em;
 		}
 
-		#sidebar section:first-child
+		#aside section:first-child
 		{
 			border-top: 0;
 			margin-top: 0;
@@ -348,7 +309,7 @@
 		
 		#footer header.major
 		{
-			margin-bottom: 3em;
+			margin-bottom: 2em;
 		}
 
 /*********************************************************************************/
@@ -357,6 +318,6 @@
 
 	#copyright
 	{
-		padding-top: 4em;
-		margin-top: 6em;
+		padding-top: 2em;
+		margin-top: 4em;
 	}

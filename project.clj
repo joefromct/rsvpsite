@@ -1,7 +1,10 @@
 (defproject
   webapp
   "0.1.0-SNAPSHOT"
-  :repl-options {:init-ns webapp.repl}
+  :repl-options {:init-ns webapp.repl 
+                 :host "0.0.0.0" 
+                 :port 12454 
+                 }
   :dependencies [[ring-server "0.3.1"]
                  [postgresql/postgresql "9.1-901-1.jdbc4"]
                  [ragtime "0.3.6"]
