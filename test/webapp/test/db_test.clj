@@ -68,7 +68,7 @@
 
 
 {:entree_notes ["" "" "" ""],
- :entree ["Herb Stuffed Chicken Breast" "Herb Stuffed Chicken Breast" "Pan Seared Samoln with Terriyaki Ginger Glaze" "Herb Stuffed Chicken Breast"],
+ :entree ["Herb Stuffed Chicken Breast" "Herb Stuffed Chicken Breast" "Pan Seared Salmon with Terriyaki Ginger Glaze" "Herb Stuffed Chicken Breast"],
  :guest ["Bob Baumann yyfp" "" "" ""],
  :flag_accepted "  ",
  :email_address " ",
@@ -114,7 +114,7 @@
 
 
 (def dicts {:entree_notes ["1" "2" "3" "4"]
-            :entree ["Herb Stuffed Chicken Breast" "Pan Seared Samoln with Terriyaki Ginger Glaze" "Vegetarian" "Pan Seared Samoln with Terriyaki Ginger Glaze"]
+            :entree ["Herb Stuffed Chicken Breast" "Pan Seared Salmon with Terriyaki Ginger Glaze" "Vegetarian" "Pan Seared Samoln with Terriyaki Ginger Glaze"]
             :guest ["Bob33" "2" "33" "4"]})  
 
 (let [
