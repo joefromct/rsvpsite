@@ -51,6 +51,12 @@
     (resp/redirect "/rsvp-manage" )    
     (layout/render "rsvp.html" )))
 
+(defn render-select-box [guest-detail] 
+
+
+)
+
+
 (defn rsvp-manage []
   (let 
       [

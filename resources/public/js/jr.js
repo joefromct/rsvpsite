@@ -4,7 +4,7 @@ function addInput(divName){
 <select name='entree[]'> \
 <option selected ></option>\
 <option>Herb Stuffed Chicken Breast</option>\
-<option>Pan Seared Samoln with Terriyaki Ginger Glaze</option>\
+<option>Pan Seared Salmon with Terriyaki Ginger Glaze</option>\
 <option>Grilled Top Sirloin Steak</option>\
 <option>Vegetarian            </option>\
 </select> <br>\
