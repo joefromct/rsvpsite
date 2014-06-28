@@ -8,9 +8,6 @@
 
 <html>
 
-</body>
-
-</html>
 <head>
 <title>Lucy and Joe's Wedding</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -18,15 +15,15 @@
 <meta name="keywords" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="style/css" />
-<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.dropotron.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.dropotron.min.js"></script>
 <script src="js/skel.min.js"></script>
 <script src="js/skel-panles.min.js"></script>
 <script src="js/init.js"></script>
 <noscript>
-    <!-- should there be CSS here?  -Joe -->
-
+    <link rel="stylesheet" href="{{servlet-context}}/css/skel-noscript.css" />
+    <link rel="stylesheet" href="{{servlet-context}}/css/style.css" />
+    <link rel="stylesheet" href="{{servlet-context}}/css/style-n1.css" />
 </noscript>
 <body class="no-sidebar">
 
@@ -56,6 +53,11 @@
                                                 </ul>
                                             </li>
                                             <li><a href="#">Veroeros feugiat</a></li>  -->
+                    {% if party  %}
+                        <li><a href="/logout">logout {{ party.party_name }} </a></li>
+                    {% else %} 
+                        <li><a href="/rsvp">rsvp login </a></li>
+                    {% endif %}
                 </ul>
                 </li>
                 <li class="break">
@@ -63,7 +65,7 @@
                 <ul>
                     <li><a href="/guest-information">Guest Information</a></li>
                     <li><a href="/the-venue">The Venue</a></li>
-                    
+
                     <!-- 						<li>
                                                 <span>Phasellus consequat</span>
                                                 <ul>
@@ -81,41 +83,48 @@
     </div>
 </div>
 
+{% if messages  %}
+<div>{{ messages }} </div>
+{% endif %}
 
 <div class="wrapper">
+{% if party  %}
+<p>Hi {{ party.party_name }}  </p>
+{% endif %}
+
     <div class="container">
-            <!-- Main Wrapper -->
-            {% block content %}
-            <p> We are delighted to be
-            holding our wedding on <span style="color: #f08c89">26 October
+        <!-- Main Wrapper -->
+        {% block content %}
+        <p> We are delighted to be
+        holding our wedding on <span style="color: #f08c89">26 October
             2014</span></color> in Connecticut.  </p>
-            <p>It has been an exciting year
-            with our big move to the States and
-            we are so happy to 
-            finally celebrate our marriage with
-            all of our friends and family.
-            </p>
-            <p> We would like to thank
-            everyone, both here and across the
-            pond, for your continual help and
-            support, especially over this past
-            year, we are very lucky to have
-            such fantastic people in our lives.</p>
-            <p> We would also like to thank
-            those of you coming from the UK for
-            making the effort to join us in
-            celebrating our special day. </p>
-            <p>Love Lucy and Joe.</p>
+        <p>It has been an exciting year
+        with our big move to the States and
+        we are so happy to 
+        finally celebrate our marriage with
+        all of our friends and family.
+        </p>
+        <p> We would like to thank
+        everyone, both here and across the
+        pond, for your continual help and
+        support, especially over this past
+        year, we are very lucky to have
+        such fantastic people in our lives.</p>
+        <p> We would also like to thank
+        those of you coming from the UK for
+        making the effort to join us in
+        celebrating our special day. </p>
+        <p>Love Lucy and Joe.</p>
 
-                <center>
-                    <img src="images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg">    
-                    </center>
+        <center>
+            <img src="images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg">    
+        </center>
 
-<div class="bgSizeCover">
-                    <img src="images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg">    
-</div>
+        <div class="bgSizeCover">
+            <img src="images/starstudded_romantic_heartshaped_04_vector_0 copy.jpg">    
+        </div>
 
-            {% endblock %}
+        {% endblock %}
     </div>
     <!-- Footer Wrapper -->
 </div>

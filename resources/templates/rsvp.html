@@ -1,15 +1,17 @@
 {% extends "templates/base.html" %}
 {% block content %}
         <h2><span style="color: #f08c89">Kindly respond by the 1st of August</span></color></h2>
-
-          <p>Please enter your name and the names of the guests in your party</p>
-          <p>
-          	Would be delighted to accept.
-          </p>
-          <p>
-          	Must regretfully decline.
-          </p>
-        
+        <article >
+            <header>
+                <h2>Secret RSVP phrase:</h2> 
+                <p>
+                <form action="/rsvp" method="POST">
+                    <input id="word"   name="word"   placeholder="Fruit Candy" type="text" />
+                    <input type="submit" value="login" />
+                </form>
+                </p>
+            </header>
+        </article>
 	<center>
 	<img src="images/orchid.jpg" repeat>	
 	</center>

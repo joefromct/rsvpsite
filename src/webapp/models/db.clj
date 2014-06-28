@@ -1,78 +1,38 @@
 (ns webapp.models.db
   (:use korma.core
-        [korma.db :only (defdb)])
-  (:require 
-    [webapp.models.schema :as schema]
-    [webapp.models.helpers :as h]
-    ))
+        [korma.db :only (defdb)]
+        [clojure.pprint]
+        [clojure.walk]
+        [webapp.models.schema] 
+        )
+  (:require
+    [webapp.models.helpers :as h ]))
 
-(defdb db schema/db-spec)
-
-(defentity entree )
-
-(defentity party )
-
-(defentity guest-detail 
-  (table :guest_detail :guest-detail ) 
-  (has-one entree)
-  (has-one party ))
-
-;(select entree (where {:id 2 } ) )  
-
-(defn get-user    [& stuff] "test"  ) 
-(defn create-user [& stuff] "test"  ) 
-(defn update-user [& stuff] "test"  ) 
+;(create-fun "read" "entity")  
+;(crud-read-entity "entree" ) 
+; Each of the below returns a function, the app will be calling these throughout
+(def crud-read-entree         (h/crud-read   "entree"       ))
+(def crud-read-party          (h/crud-read   "party"        ))
+(def crud-read-guest-detail   (h/crud-read   "guest-detail" ))   
+(def crud-update-entree       (h/crud-update "entree"       ))
+(def crud-update-party        (h/crud-update "party"        ))
+(def crud-update-guest-detail (h/crud-update "guest-detail" ))  
+(def crud-create-entree       (h/crud-create "entree"       ))
+(def crud-create-party        (h/crud-create "party"        ))
+(def crud-create-guest-detail (h/crud-create "guest-detail" )) 
 
 
-;( defn not-nil? [x & args] (complement (nil? x))) 
+(defn get-party-by-word [word]
+  (first (select party 
+                 (where {:secret_word word})
+                 (fields :id
+                         :postal_code
+                         :secret_word
+                         :flag_accepted
+                         :email_address
+                         :party_name
+                         :flag_sent_mail
+                         :estimated_number_in_party)
+                 (limit 1))))
 
 
-;(let [
-;      read-things (fn  [& attr] 
-;                    (if (not-nil? attr)
-;                      (select entree (where {:id 1 } ))
-;                      (select entree )))
-;      ]
-;  (read-things '(attr  {:id 1}) ) ) 
-;  (prn '(attr  {:id 1}) )   
-
-
-
-
-;(defmacro read-by-id [entity ]  
-;  `(fn [x] ( select ~entity  (where x ))))
-;
-;
-;
-;(read-by-id entree )
-;
-;
-;
-;(defmacro [thing ]
-;  `(fn [x]  (select 'thing )))
-;
-;
-;
-;(defmacro code-praiser
-;    [entity]
-;    `(select 'entity ))
-;
-;(select 
-;  entree 
-;        )
-;
-;
-;
-;(macroexpand '(code-praiser  (+ 1 1)))
-;
-;; (create-model-fns *ns* employees)
-;
-;;(create-model-finder-fns *ns* [:name :email])
-;
-;
-;
-;;(defn find-all  [&  [attr]]
-;;    (if  (map? attr)
-;;          (select entree  (with addresses)  (where attr))
-;;          (select entree  (with addresses))))
-;;

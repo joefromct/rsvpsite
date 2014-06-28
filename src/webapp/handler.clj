@@ -2,9 +2,10 @@
   (:require [compojure.core                  :refer [defroutes]]   
             [webapp.routes.home              :refer [home-routes]] 
             [webapp.routes.rsvp              :refer [rsvp-routes]] 
-            [webapp.routes.auth              :refer [auth-routes]] 
+;           [webapp.routes.auth              :refer [auth-routes]] 
             [webapp.middleware               :as middleware]       
             [noir.util.middleware            :refer [app-handler]] 
+            [noir.session                    :as session]
             [compojure.route                 :as route]            
             [taoensso.timbre                 :as timbre]           
             [taoensso.timbre.appenders.rotor :as rotor]            
@@ -36,11 +37,16 @@
   []
   (timbre/info "webapp is shutting down..."))
 
+ (defn rsvp-page [_]
+  (session/get :party))
+
 (def app
-  (app-handler [ ; You _have_ to put app-routes last... or 404 will take over.
-                auth-routes home-routes rsvp-routes app-routes  ]
+  (app-handler [ 
+                ; You _have_ to put app-routes last... or 404 will take over.
+                ; auth-routes 
+                home-routes rsvp-routes app-routes  ]
                :middleware   [middleware/template-error-page
                               middleware/log-request] 
-               :access-rules []                                                      
-               :formats      [:json-kw :edn]))                                       
+               :access-rules [rsvp-page]
+               :formats      [:json-kw :edn]))
 
