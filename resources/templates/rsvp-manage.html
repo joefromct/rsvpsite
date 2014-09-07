@@ -29,7 +29,7 @@
             <label>special entree instructions</label>
             <textarea style="height: 45px; width: 352px; " placeholder="Special meal instructions" name="entree_notes[]">{{guest.entree_notes}}</textarea> <hr>
             {% endfor %}
-            {% if not guest-detail %}
+            {% if guest-detail|length = 0  %}
             <label>guest name</><input type="text" name="guest[]" value="{{guest-master.party_name}}" > <br>
               <label>entree </label><select name="entree[]"> 
                 <option selected > </option>
