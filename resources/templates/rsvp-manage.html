@@ -2,48 +2,49 @@
 {% block content %}
 {{dynamic-content}} 
 <article >
-    <h2>RSVP Management</h2> 
-    <form action="/rsvp-manage" method="POST">
-      <div>
-        <p>
+  <h2>RSVP Management</h2> 
+  <form action="/rsvp-manage" method="POST">
+    <div>
+      <p>
         <label>Party Name:</label>  <input id="party_name" name="party_name" placeholder="party_name"   type="text" value="{{guest-master.party_name}}" />  <br>
         <label>Party Email:</label> <input id="email" name="email_address"   placeholder="email address" type="text" value="{{guest-master.email_address}}" /><br> 
         <label>Accepted? </label><select type="text" name="flag_accepted"> <option value="  ">  </option>
           <option value="Yes" {% ifequal guest-master.flag_accepted "Yes" %} selected {% endifequal %} >Yes</option>
           <option value="No"  {% ifequal guest-master.flag_accepted "No"  %} selected {% endifequal %} >No</option>
         </select> 
-         </div>
+    </div>
       </p>  
       <input type="submit" value="save guest info" /> 
       <div style="border:1px dotted black"> 
         <div id="dynamicInput" >
-{% for guest in guest-detail %} 
+          {% for guest in guest-detail %} 
           <label>guest name</><input type="text" name="guest[]" value="{{guest.guest}}" > <br>
-          <label>entree </label><select name="entree[]"> 
-            <option                                                                                                     > </option>
-            <option {%ifequal guest.entree "Herb Stuffed Chicken Breast"                   %} selected {% endifequal %} >Herb Stuffed Chicken Breast                   </option>
-            <option {%ifequal guest.entree "Pan Seared Salmon with Terriyaki Ginger Glaze" %} selected {% endifequal %} >Pan Seared Salmon with Terriyaki Ginger Glaze </option>
-            <option {%ifequal guest.entree "Grilled Top Sirloin Steak"                     %} selected {% endifequal %} >Grilled Top Sirloin Steak                     </option>
-            <option {%ifequal guest.entree "Vegetarian"                                    %} selected {% endifequal %} >Vegetarian                                    </option>
-          </select><br>
-          <label>special entree instructions</label><textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]">{{guest.entree_notes}}</textarea> <hr>
-{% endfor %}
-{% if not guest-detail %}
-           <label>guest name</><input type="text" name="guest[]" value="{{guest-master.party_name}}" > <br>
-          <label>entree </label><select name="entree[]"> 
-            <option selected > </option>
-            <option >Herb Stuffed Chicken Breast                   </option>
-            <option >Pan Seared Salmon with Terriyaki Ginger Glaze </option>
-            <option >Grilled Top Sirloin Steak                     </option>
-            <option >Vegetarian                                    </option>
-          </select><br>
-          <label>special entree instructions</label><textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]"></textarea> <hr>
-{% endif %}
+            <label>entree </label><select name="entree[]"> 
+              <option                                                                                                     > </option>
+              <option {%ifequal guest.entree "Herb Stuffed Chicken Breast"                   %} selected {% endifequal %} >Herb Stuffed Chicken Breast                   </option>
+              <option {%ifequal guest.entree "Pan Seared Salmon with Terriyaki Ginger Glaze" %} selected {% endifequal %} >Pan Seared Salmon with Terriyaki Ginger Glaze </option>
+              <option {%ifequal guest.entree "Grilled Top Sirloin Steak"                     %} selected {% endifequal %} >Grilled Top Sirloin Steak                     </option>
+              <option {%ifequal guest.entree "Vegetarian"                                    %} selected {% endifequal %} >Vegetarian                                    </option>
+            </select><br>
+            <label>special entree instructions</label>
+            <textarea style="height: 45px; width: 352px; " placeholder="Special meal instructions" name="entree_notes[]">{{guest.entree_notes}}</textarea> <hr>
+            {% endfor %}
+            {% if not guest-detail %}
+            <label>guest name</><input type="text" name="guest[]" value="{{guest-master.party_name}}" > <br>
+              <label>entree </label><select name="entree[]"> 
+                <option selected > </option>
+                <option >Herb Stuffed Chicken Breast                   </option>
+                <option >Pan Seared Salmon with Terriyaki Ginger Glaze </option>
+                <option >Grilled Top Sirloin Steak                     </option>
+                <option >Vegetarian                                    </option>
+              </select><br>
+              <label>special entree instructions</label><textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]"></textarea> <hr>
+              {% endif %}
         </div>
         <center>
           <input type="button" value="add guest" onClick="addInput('dynamicInput');"><br>
         </center>
         <div>
-</form>
+  </form>
 </article>
 {% endblock %}

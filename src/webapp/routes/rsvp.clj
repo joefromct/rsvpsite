@@ -52,10 +52,8 @@
     (layout/render "rsvp.html" )))
 
 (defn render-select-box [guest-detail] 
-
-
-)
-
+  " Not sure what i was thinknig here"
+  )
 
 (defn rsvp-manage []
   (let 
@@ -63,7 +61,9 @@
        guest-master (db/crud-read-party-by-id        (:id  (session/get :party  ))  )
        guest-detail (db/crud-read-guest-detail-by-id (:id  (session/get :party  ))  )
        ]
-    (layout/render "rsvp-manage.html" {:guest-master guest-master :guest-detail guest-detail })))
+    (layout/render "rsvp-manage.html" 
+                   {:guest-master guest-master 
+                    :guest-detail guest-detail })))
 
 
 ;{:dynamic-content blockcontent }     

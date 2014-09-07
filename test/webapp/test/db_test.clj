@@ -22,75 +22,10 @@
 
 ;(db/get-party-by-word "dublin bay") 
 
-
 ; i have something like this:
 (def orders {:entree_notes ["no salt" "extra mayo"]
              :entree ["chicken sandwich" "meatball sub"]
              :guest ["bill" "ted"]}) 
-
-
-(map #(nth (:entree_notes orders) % ) (range (count (:entree_notes orders))))
-
-(session-put {:id 12})
-
-(binding [sesh/*noir-session* (atom {:somekey "somevalue"})]
-  (session/put! :party 
-                (select-keys (db/crud-read-party-by-id  180) [:id :party_name])))   
-
-(sesion/put! :party 30) 
-
-(db/crud-read-party-by-id {:id17})
-
-(db/crud-create-guest-detail update-dictionary args )
-
-
-(def crud-create-guest-detail (h/crud-create "guest-detail" ))  
-
-
-(defentity guest-detail
-  (table :guest_detail )
-; (has-one entree)
-  (has-one party ))
- 
-
-(insert guest-detail 
-(values {:id 17 :entree "aoesunh" :entree_notes "satnohesantoh aoseut"})
-)
-
-(db/crud-create-guest-detail )
-
-(db/crud-create-guest-detail 
- {
-  :id 17
-  :entree_name "aaosntunaothe" 
-  :entree_noets "snaotesnatoheusnthaoe " }   ) 
-
-
-
-{:entree_notes ["" "" "" ""],
- :entree ["Herb Stuffed Chicken Breast" "Herb Stuffed Chicken Breast" "Pan Seared Salmon with Terriyaki Ginger Glaze" "Herb Stuffed Chicken Breast"],
- :guest ["Bob Baumann yyfp" "" "" ""],
- :flag_accepted "  ",
- :email_address " ",
- :party_name "Bob Baumann yyfp"} 
-
-
-
-(normalize dicts) 
-
-(db/crud-refresh-guest-detail {:id 170} dicts )  
-
-
-
-(insert guest-detail (values  insert-dict)) 
-
-
-(:entree dicts) 
-
-(for [c  (range 0 (count  (:entree dicts)))]
-  (do 
-    (pprint c)))  
-
 
 
 (for [c (range 0 (count (:entree dicts))) ]
@@ -110,7 +45,7 @@
  {:id 167}
  {:entree_notes ["" ""],
   :entree ["bitch Breast" "Herb Stuffed Chicken Breast"],
-  :guest ["Bob Baumann yyfp" ""]})   
+  :guest ["Bob yyfp" ""]})   
 
 
 (def dicts {:entree_notes ["1" "2" "3" "4"]

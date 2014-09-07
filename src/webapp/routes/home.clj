@@ -25,13 +25,13 @@
 (defn other-information []           ( layout/render "other-information.html"           {:dynamic-content (str "other-information.html           content")})  ) 
 
 (defroutes home-routes
-    ( GET "/" []                  ( home-page))
-    ( GET "/our-proposal" []      ( our-proposal))
-    ( GET "/wedding-party" []     ( wedding-party))
-    ( GET "/guest-information" [] ( guest-information))
-    ( GET "/ceremony-reception" [] ( ceremony-reception ))
-    ( GET "/location" [] ( location ))
-    ( GET "/other-information" [] ( other-information ))
-    ( GET "/contact" []           ( contact))
-    ( GET "/accommodation" []           ( accommodation)))
+  (GET "/" []                   (home-page          ))
+  (GET "/our-proposal" []       (our-proposal       ))
+  (GET "/wedding-party" []      (wedding-party      ))
+  (GET "/guest-information" []  (guest-information  ))
+  (GET "/ceremony-reception" [] (ceremony-reception ))
+  (GET "/location" []           (location           ))
+  (GET "/other-information" []  (other-information  ))
+  (GET "/contact" []            (contact            ))
+  (GET "/accommodation" []      (accommodation      )))
 
