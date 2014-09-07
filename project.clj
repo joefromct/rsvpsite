@@ -23,6 +23,7 @@
          :destroy webapp.handler/destroy}
   :ragtime {:migrations ragtime.sql.files/migrations,
             :database "jdbc:postgresql://localhost/webapp?user=webapp&password=DrRoot13"}
+  :main ^:skip-aot webapp.handler/init 
   :profiles {:uberjar {:aot :all},
              :production {:ring
                           {:open-browser? false, :stacktraces? false, :auto-reload? false}
