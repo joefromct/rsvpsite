@@ -14,9 +14,10 @@
         </select> 
     </div>
       </p>  
-      <input type="submit" value="save guest info" /> 
       <div style="border:1px dotted black"> 
         <div id="dynamicInput" >
+          <input type="submit" value="save guest info" /> 
+<br>
           {% for guest in guest-detail %} 
           <label>guest name</><input type="text" name="guest[]" value="{{guest.guest}}" > <br>
             <label>entree </label><select name="entree[]"> 
@@ -41,9 +42,8 @@
               <label>special entree instructions</label><textarea style="height: 45px; width: 352px; " placeholder="special meal instructions" name="entree_notes[]"></textarea> <hr>
               {% endif %}
         </div>
-        <center>
-          <input type="button" value="add guest" onClick="addInput('dynamicInput');"><br>
-        </center>
+          <input type="button" value="add another guest" onClick="addInput('dynamicInput');"><br>
+          <input type="submit" value="save guest info" /> 
         <div>
   </form>
 </article>
